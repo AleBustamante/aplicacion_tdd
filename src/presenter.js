@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const specialDiscountValue = calculator.specialDiscount(customerTypeValue, netPriceValue, productTypeValue);
     const totalPriceValue = calculator.getTotal(quantityValue, unitPriceValue, stateValue, productTypeValue, volumetricWeightValue, customerTypeValue);
 
+    if (quantityValue < 0 || unitPriceValue < 0 || volumetricWeightValue < 0) {
+      alert("Los valores no pueden ser negativos. Por favor, ingrese valores válidos.");
+      return;
+    }
 
     netPrice.value = netPriceValue.toFixed(2);
     netPrice.classList.remove("hidden"); 
