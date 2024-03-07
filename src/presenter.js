@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const discountValue = calculator.discount(netPriceValue);
     const taxPercentageValue = calculator.taxPercentage(stateValue);
     const taxValue = calculator.tax(stateValue, netPriceValue);
-    const additionalTax = calculator.additionalTax(productTypeValue);
+    const additionalTaxPercentageValue = calculator.additionalTax(productTypeValue);
+    const additionalTaxValue = calculator.additionalTaxAmount(productTypeValue, netPriceValue);
 
 
     netPrice.value = netPriceValue.toFixed(2);
@@ -49,8 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
     taxDetail.classList.remove("hidden");
     tax.value = taxValue + "$";
     tax.classList.remove("hidden");
-    additionalTaxDetail.value = additionalTax + "% =";
+    additionalTaxDetail.value = additionalTaxPercentageValue + "% =";
     additionalTaxDetail.classList.remove("hidden");
+    additionalTax.value = additionalTaxValue + "$";
+    additionalTax.classList.remove("hidden");
   });
 });
 

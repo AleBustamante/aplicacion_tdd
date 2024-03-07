@@ -133,5 +133,33 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.additionalTax("ninguna")).toEqual(-1);
   });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Foods", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Alimentos", 3500)).toEqual(0);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Alcoholic drinks", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Bebidas alcohólicas", 3500)).toEqual(232.75000000000003);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Stationery", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Material de escritorio", 3500)).toEqual(0);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Furniture", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Muebles", 3500)).toEqual(99.75);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Electronics", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Electrónicos", 3500)).toEqual(133);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Clothes", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Vestimenta", 3500)).toEqual(66.5);
+  });
+  it("Should calculate the amount of the additional tax based on the category of the product - case Others", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTaxAmount("Varios", 3500)).toEqual(0);
+  });
 
 });
