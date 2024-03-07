@@ -301,5 +301,9 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.specialDiscount("Normal", 1500, "Muebles")).toEqual(0);
   });
+  it("Should add all the taxes and discounts correctly", () => {
+    let calculator = new Calculator();
+    expect(calculator.getTotal(75, 100, "CA", "Electrónicos", 80, "Especial")).toEqual(7565.5975);
+  });
 
 });

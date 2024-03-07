@@ -169,4 +169,17 @@ export default class Calculator {
         return 0;
     }
   }
+  getTotal(quantity, unitPrice, state, productType, volumetricWeight, clientType) {
+    let netPrice = this.netPrice(unitPrice, quantity);
+    let total = 0;
+    total += netPrice;
+    total -= this.discount(netPrice);
+    total += this.tax(state, netPrice);
+    total -= this.additionalDiscount(productType, netPrice);
+    total += this.additionalTaxAmount(productType, netPrice);
+    total += this.shippingCost(volumetricWeight);
+    total -= this.shippingCostDiscount(clientType, this.shippingCost(volumetricWeight));
+    total -= this.specialDiscount(clientType, netPrice, productType);
+    return total;
+  }
 }

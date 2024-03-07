@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const shippingCostDiscountDetail = document.querySelector('#shippingCostDiscountDetail');
   const shippingCostDiscount = document.querySelector('#shippingCostDiscount');
   const specialDiscount = document.querySelector('#specialDiscount');
+  const totalPrice = document.querySelector('#totalPrice');
 
   const totalPriceButton = document.querySelector("#totalPriceButton");
 
@@ -50,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shippingCostDiscountPercentValue = calculator.shippingCostDiscountPercentage(customerTypeValue);
     const shippingCostDiscountValue = calculator.shippingCostDiscount(customerTypeValue, shippingCostValue);
     const specialDiscountValue = calculator.specialDiscount(customerTypeValue, netPriceValue, productTypeValue);
+    const totalPriceValue = calculator.getTotal(quantityValue, unitPriceValue, stateValue, productTypeValue, volumetricWeightValue, customerTypeValue);
 
 
     netPrice.value = netPriceValue.toFixed(2);
@@ -80,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
     shippingCostDiscount.classList.remove("hidden");
     specialDiscount.value = specialDiscountValue + "$";
     specialDiscount.classList.remove("hidden");
+    totalPrice.value = totalPriceValue + "$";
+    totalPrice.classList.remove("hidden");
   });
 });
 
