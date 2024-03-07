@@ -21,9 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const unitPriceValue = parseFloat(unitPrice.value);
 
     const netPriceValue = calculator.netPrice(unitPriceValue, quantityValue);
+    const netPriceDetailValue = calculator.detailNetPrice(unitPriceValue, quantityValue);
 
     netPrice.value = netPriceValue.toFixed(2);
     netPrice.classList.remove("hidden"); 
+    netPriceDetail.value = netPriceDetailValue;
+    netPriceDetail.classList.remove("hidden"); 
   });
 });
 
