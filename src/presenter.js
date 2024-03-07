@@ -1,4 +1,4 @@
-import sumar from "./sumador";
+import Calculator from "./calculator";
 
 const first = document.querySelector("#primer-numero");
 const second = document.querySelector("#segundo-numero");
@@ -11,5 +11,7 @@ form.addEventListener("submit", (event) => {
   const firstNumber = Number.parseInt(first.value);
   const secondNumber = Number.parseInt(second.value);
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  calculator = new Calculator();
+
+  div.innerHTML = "<p>" + calculator.sumar(firstNumber, secondNumber) + "</p>";
 });
