@@ -193,5 +193,33 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.additionalDiscountPercentage("ninguna")).toEqual(-1);
   });
+  it("Should calculate the discount amount based on the category of the product - case Food", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Alimentos", 3500)).toEqual(66.5);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Alcoholic drinks", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Bebidas alcohólicas", 3500)).toEqual(0);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Stationery", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Material de escritorio", 3500)).toEqual(49.875);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Furniture", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Muebles", 3500)).toEqual(0);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Electronics", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Electrónicos", 3500)).toEqual(33.25);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Clothes", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Vestimenta", 3500)).toEqual(0);
+  });
+  it("Should calculate the discount amount based on the category of the product - case Others", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscount("Varios", 3500)).toEqual(0);
+  });
 
 });

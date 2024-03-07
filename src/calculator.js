@@ -108,4 +108,8 @@ export default class Calculator {
         return -1;
     } 
   }
+  additionalDiscount(productCategory, netPrice) {
+    let discountedPrice = netPrice - this.discount(netPrice);
+    return this.additionalDiscountPercentage(productCategory) * 0.01 * discountedPrice;
+  }
 }
