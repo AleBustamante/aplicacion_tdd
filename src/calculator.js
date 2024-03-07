@@ -48,4 +48,34 @@ export default class Calculator {
         return -1;
     }
   }
+  tax(stateCode, netPrice) {
+    let discountedPrice = netPrice - this.discount(netPrice);
+    return this.taxPercentage(stateCode) * 0.01 * discountedPrice; 
+  }
+  additionalTax(productCategory) {
+    if(productCategory === "Alimentos") {
+        return 0.0;
+    }
+    if(productCategory === "Bebidas alcohólicas") {
+        return 7.0;
+    }
+    if(productCategory === "Material de escritorio") {
+        return 0.0;
+    }
+    if(productCategory === "Muebles") {
+        return 3.0;
+    }
+    if(productCategory === "Electrónicos") {
+        return 4.0;
+    }
+    if(productCategory === "Vestimenta") {
+        return 2.0;
+    }
+    if(productCategory === "Varios") {
+        return 0.0;
+    }
+    else {
+        return -1;
+    }
+  }
 }

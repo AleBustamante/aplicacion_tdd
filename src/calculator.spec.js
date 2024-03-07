@@ -81,5 +81,57 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.taxPercentage("JJ")).toEqual(-1);
   });
+  it("Should calculate the amount to pay on taxes based on the state - case CA", () => {
+    let calculator = new Calculator();
+    expect(calculator.tax("CA", 3500)).toEqual(274.3125);
+  });
+  it("Should calculate the amount to pay on taxes based on the state - case UT", () => {
+    let calculator = new Calculator();
+    expect(calculator.tax("UT", 3500)).toEqual(221.1125);
+  });
+  it("Should calculate the amount to pay on taxes based on the state - case NV", () => {
+    let calculator = new Calculator();
+    expect(calculator.tax("NV", 3500)).toEqual(266);
+  });
+  it("Should calculate the amount to pay on taxes based on the state - case TX", () => {
+    let calculator = new Calculator();
+    expect(calculator.tax("TX", 3500)).toEqual(207.8125);
+  });
+  it("Should calculate the amount to pay on taxes based on the state - case AL", () => {
+    let calculator = new Calculator();
+    expect(calculator.tax("AL", 3500)).toEqual(133);
+  });
+  it("Should determine the additional tax based on the category of the product - case Foods", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Alimentos")).toEqual(0);
+  });
+  it("Should determine the additional tax based on the category of the product - case Alcoholic drinks", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Bebidas alcohólicas")).toEqual(7);
+  });
+  it("Should determine the additional tax based on the category of the product - case Stationery", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Material de escritorio")).toEqual(0);
+  });
+  it("Should determine the additional tax based on the category of the product - case Furniture", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Muebles")).toEqual(3);
+  });
+  it("Should determine the additional tax based on the category of the product - case Electronics", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Electrónicos")).toEqual(4);
+  });
+  it("Should determine the additional tax based on the category of the product - case Clothes", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Vestimenta")).toEqual(2);
+  });
+  it("Should determine the additional tax based on the category of the product - case Others", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("Varios")).toEqual(0);
+  });
+  it("Should return -1 in case a non existing category is entered", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalTax("ninguna")).toEqual(-1);
+  });
 
 });
