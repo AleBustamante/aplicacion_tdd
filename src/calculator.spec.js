@@ -161,5 +161,37 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.additionalTaxAmount("Varios", 3500)).toEqual(0);
   });
+  it("Should determine the discount percentage based on the category of the product - case Foods", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Alimentos")).toEqual(2);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Alcoholic drinks", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Bebidas alcohólicas")).toEqual(0);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Stationery", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Material de escritorio")).toEqual(1.5);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Furniture", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Muebles")).toEqual(0);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Electronics", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Electrónicos")).toEqual(1);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Clothes", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Vestimenta")).toEqual(0);
+  });
+  it("Should determine the discount percentage based on the category of the product - case Others", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("Varios")).toEqual(0);
+  });
+  it("Should return -1 if the category entered is invalid", () => {
+    let calculator = new Calculator();
+    expect(calculator.additionalDiscountPercentage("ninguna")).toEqual(-1);
+  });
 
 });

@@ -82,4 +82,30 @@ export default class Calculator {
     let discountedPrice = netPrice - this.discount(netPrice);
     return this.additionalTax(productCategory) * 0.01 * discountedPrice;
   }
+  additionalDiscountPercentage(productCategory) {
+    if(productCategory === "Alimentos") {
+        return 2.0;
+    }
+    if(productCategory === "Bebidas alcohólicas") {
+        return 0.0;
+    }
+    if(productCategory === "Material de escritorio") {
+        return 1.5;
+    }
+    if(productCategory === "Muebles") {
+        return 0.0;
+    }
+    if(productCategory === "Electrónicos") {
+        return 1.0;
+    }
+    if(productCategory === "Vestimenta") {
+        return 0.0;
+    }
+    if(productCategory === "Varios") {
+        return 0.0;
+    }
+    else {
+        return -1;
+    } 
+  }
 }
