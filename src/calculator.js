@@ -28,4 +28,24 @@ export default class Calculator {
   discount(netPrice) {
     return this.discountPercentage(netPrice) * 0.01 * netPrice;
   }
+  taxPercentage(stateCode) {
+    if(stateCode === "CA") {
+        return 8.25;
+    }
+    if(stateCode === "UT") {
+        return 6.65;
+    }
+    if(stateCode === "NV") {
+        return 8.00;
+    }
+    if(stateCode === "TX") {
+        return 6.25;
+    }
+    if(stateCode === "AL") {
+        return 4.00;
+    }
+    else {
+        return -1;
+    }
+  }
 }

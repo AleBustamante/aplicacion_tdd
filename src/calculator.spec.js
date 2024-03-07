@@ -57,4 +57,29 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.discount(35000)).toEqual(5250);
   });
+  it("Should determine the tax percentage that applies according to the state - case CA", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("CA")).toEqual(8.25);
+  });
+  it("Should determine the tax percentage that applies according to the state - case UT", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("UT")).toEqual(6.65);
+  });
+  it("Should determine the tax percentage that applies according to the state - case NV", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("NV")).toEqual(8.00);
+  });
+  it("Should determine the tax percentage that applies according to the state - case TX", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("TX")).toEqual(6.25);
+  });
+  it("Should determine the tax percentage that applies according to the state - case AL", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("AL")).toEqual(4.00);
+  });
+  it("Should give a -1 if you send a code that doesn't correspond to any state", () => {
+    let calculator = new Calculator();
+    expect(calculator.taxPercentage("JJ")).toEqual(-1);
+  });
+
 });

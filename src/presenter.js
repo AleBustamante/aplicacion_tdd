@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const netPriceDetail = document.querySelector("#netPriceDetail");
   const discount = document.querySelector("#discount");
   const discountDetail = document.querySelector("#discountDetail");
+  const tax= document.querySelector("#tax");
+  const taxDetail = document.querySelector("#taxDetail");
 
   const totalPriceButton = document.querySelector("#totalPriceButton");
 
@@ -21,11 +23,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const calculator = new Calculator();
     const quantityValue = parseFloat(quantity.value);
     const unitPriceValue = parseFloat(unitPrice.value);
+    const stateValue = stateCode.value;
 
     const netPriceValue = calculator.netPrice(unitPriceValue, quantityValue);
     const netPriceDetailValue = calculator.detailNetPrice(unitPriceValue, quantityValue);
     const discountPercentageValue = calculator.discountPercentage(netPriceValue);
     const discountValue = calculator.discount(netPriceValue);
+    const taxPercentageValue = calculator.taxPercentage(stateValue);
+
 
     netPrice.value = netPriceValue.toFixed(2);
     netPrice.classList.remove("hidden"); 
@@ -35,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     discountDetail.classList.remove("hidden"); 
     discount.value = discountValue + "$";
     discount.classList.remove("hidden"); 
+    taxDetail.value = taxPercentageValue + "% =";
+    taxDetail.classList.remove("hidden");
   });
 });
 
