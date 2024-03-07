@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const customerType = document.querySelector("#customerType");
   const netPrice = document.querySelector("#netPrice");
   const netPriceDetail = document.querySelector("#netPriceDetail");
+  const discount = document.querySelector("#discount");
+  const discountDetail = document.querySelector("#discountDetail");
 
   const totalPriceButton = document.querySelector("#totalPriceButton");
 
@@ -22,11 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const netPriceValue = calculator.netPrice(unitPriceValue, quantityValue);
     const netPriceDetailValue = calculator.detailNetPrice(unitPriceValue, quantityValue);
+    const discountPercentageValue = calculator.discountPercentage(netPriceValue);
 
     netPrice.value = netPriceValue.toFixed(2);
     netPrice.classList.remove("hidden"); 
     netPriceDetail.value = netPriceDetailValue;
     netPriceDetail.classList.remove("hidden"); 
+    discountDetail.value = discountPercentageValue + "% =";
+    discountDetail.classList.remove("hidden"); 
   });
 });
 
