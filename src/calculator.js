@@ -158,4 +158,15 @@ export default class Calculator {
   shippingCostDiscount(clientType, shippingCost) {
     return this.shippingCostDiscountPercentage(clientType) * 0.01 * shippingCost;
   }
+  specialDiscount(clientType, netPrice, productType) {
+    if(clientType === "Recurrente" && netPrice > 3000 && productType === "Alimentos") {
+        return 100;
+    }
+    if(clientType === "Especial" && netPrice > 7000 && productType === "Electrónicos") {
+        return 200;
+    }
+    else {
+        return 0;
+    }
+  }
 }

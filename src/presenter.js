@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const discountDetail = document.querySelector("#discountDetail");
   const tax= document.querySelector("#tax");
   const taxDetail = document.querySelector("#taxDetail");
-  const additionalTaxDetail = document.querySelector("#productTaxDetail")
-  const additionalTax = document.querySelector("#productTax")
-  const productDiscountDetail = document.querySelector("#productDiscountDetail")
-  const productDiscount = document.querySelector("#productDiscount")
-  const shippingCost = document.querySelector('#shippingCost')
-  const shippingCostDiscountDetail = document.querySelector('#shippingCostDiscountDetail')
-  const shippingCostDiscount = document.querySelector('#shippingCostDiscount')
+  const additionalTaxDetail = document.querySelector("#productTaxDetail");
+  const additionalTax = document.querySelector("#productTax");
+  const productDiscountDetail = document.querySelector("#productDiscountDetail");
+  const productDiscount = document.querySelector("#productDiscount");
+  const shippingCost = document.querySelector('#shippingCost');
+  const shippingCostDiscountDetail = document.querySelector('#shippingCostDiscountDetail');
+  const shippingCostDiscount = document.querySelector('#shippingCostDiscount');
+  const specialDiscount = document.querySelector('#specialDiscount');
 
   const totalPriceButton = document.querySelector("#totalPriceButton");
 
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shippingCostValue = calculator.shippingCost(volumetricWeightValue);
     const shippingCostDiscountPercentValue = calculator.shippingCostDiscountPercentage(customerTypeValue);
     const shippingCostDiscountValue = calculator.shippingCostDiscount(customerTypeValue, shippingCostValue);
+    const specialDiscountValue = calculator.specialDiscount(customerTypeValue, netPriceValue, productTypeValue);
 
 
     netPrice.value = netPriceValue.toFixed(2);
@@ -76,6 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
     shippingCostDiscountDetail.classList.remove("hidden");
     shippingCostDiscount.value = shippingCostDiscountValue + "$";
     shippingCostDiscount.classList.remove("hidden");
+    specialDiscount.value = specialDiscountValue + "$";
+    specialDiscount.classList.remove("hidden");
   });
 });
 

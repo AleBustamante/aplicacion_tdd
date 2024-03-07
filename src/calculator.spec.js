@@ -289,5 +289,17 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.shippingCostDiscount("Especial", 5)).toEqual(0.075);
   });
+  it("Should determine if an special discount applies based on client type, product type and net price - case Frecuent", () => {
+    let calculator = new Calculator();
+    expect(calculator.specialDiscount("Recurrente", 3500, "Alimentos")).toEqual(100);
+  });
+  it("Should determine if an special discount applies based on client type, product type and net price - case Special", () => {
+    let calculator = new Calculator();
+    expect(calculator.specialDiscount("Especial", 7500, "Electrónicos")).toEqual(200);
+  });
+  it("Should return 0 if the criteria for the 2 special cases are not met", () => {
+    let calculator = new Calculator();
+    expect(calculator.specialDiscount("Normal", 1500, "Muebles")).toEqual(0);
+  });
 
 });
