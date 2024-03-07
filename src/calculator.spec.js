@@ -221,5 +221,73 @@ describe("Sumar", () => {
     let calculator = new Calculator();
     expect(calculator.additionalDiscount("Varios", 3500)).toEqual(0);
   });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 0 - 10", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(5)).toEqual(0);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 11 - 20", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(15)).toEqual(3.5);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 21 - 40", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(35)).toEqual(5);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 41 - 80", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(55)).toEqual(6);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 81 - 100", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(95)).toEqual(6.5);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case 101 - 200", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(135)).toEqual(8);
+  });
+  it("Should determine the cost of the shipping based on the volumetric weight - case >200", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(255)).toEqual(9);
+  });
+  it("Should return -1 if the volumentric weight is wrong", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCost(-10)).toEqual(-1);
+  });
+  it("Should determine the percentage of discount based on the type of client - case Normal", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscountPercentage("Normal")).toEqual(0);
+  });
+  it("Should determine the percentage of discount based on the type of client - case Frecuent", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscountPercentage("Recurrente")).toEqual(0.5);
+  });
+  it("Should determine the percentage of discount based on the type of client - case Old Frecuent", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscountPercentage("Antiguo recurrente")).toEqual(1);
+  });
+  it("Should determine the percentage of discount based on the type of client - case Special", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscountPercentage("Especial")).toEqual(1.5);
+  });
+  it("Should return -1 if an incorrect value is sent", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscountPercentage("sin clasificacion")).toEqual(-1);
+  });
+  it("Should calculate the amount of shipping discount based on the type of client - case Normal", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscount("Normal", 5)).toEqual(0);
+  });
+  it("Should calculate the amount of shipping discount based on the type of client - case Fecuent", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscount("Recurrente", 5)).toEqual(0.025);
+  });
+  it("Should calculate the amount of shipping discount based on the type of client - case Old Frecuent", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscount("Antiguo recurrente", 5)).toEqual(0.05);
+  });
+  it("Should calculate the amount of shipping discount based on the type of client - case Special", () => {
+    let calculator = new Calculator();
+    expect(calculator.shippingCostDiscount("Especial", 5)).toEqual(0.075);
+  });
 
 });

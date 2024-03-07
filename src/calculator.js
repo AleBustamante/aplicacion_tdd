@@ -112,4 +112,50 @@ export default class Calculator {
     let discountedPrice = netPrice - this.discount(netPrice);
     return this.additionalDiscountPercentage(productCategory) * 0.01 * discountedPrice;
   }
+  shippingCost(volumetricWeight) {
+    if(volumetricWeight >= 0 && volumetricWeight <= 10) {
+        return 0;
+    }
+    if(volumetricWeight > 10 && volumetricWeight <= 20) {
+        return 3.5;
+    }
+    if(volumetricWeight > 20 && volumetricWeight <= 40) {
+        return 5;
+    }
+    if(volumetricWeight > 40 && volumetricWeight <= 80) {
+        return 6;
+    }
+    if(volumetricWeight > 80 && volumetricWeight <= 100) {
+        return 6.5;
+    }
+    if(volumetricWeight > 100 && volumetricWeight <= 200) {
+        return 8;
+    }
+    if(volumetricWeight > 200) {
+        return 9;
+    }
+    else {
+        return -1;
+    } 
+  }
+  shippingCostDiscountPercentage(clientType) {
+    if(clientType === "Normal") {
+        return 0.0;
+    }
+    if(clientType === "Recurrente") {
+        return 0.5;
+    }
+    if(clientType === "Antiguo recurrente") {
+        return 1.0;
+    }
+    if(clientType === "Especial") {
+        return 1.5;
+    }
+    else {
+        return -1;
+    } 
+  }
+  shippingCostDiscount(clientType, shippingCost) {
+    return this.shippingCostDiscountPercentage(clientType) * 0.01 * shippingCost;
+  }
 }
