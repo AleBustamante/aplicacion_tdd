@@ -1,18 +1,29 @@
 import Calculator from "./calculator";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#calculatorForm");
+  const quantity = document.querySelector("#quantity");
+  const unitPrice = document.querySelector("#unitPrice");
+  const stateCode = document.querySelector("#stateCode");
+  const productType = document.querySelector("#productType");
+  const volumetricWeight = document.querySelector("#volumetricWeight");
+  const customerType = document.querySelector("#customerType");
+  const netPrice = document.querySelector("#netPrice");
+  const netPriceDetail = document.querySelector("#netPriceDetail");
 
+  const totalPriceButton = document.querySelector("#totalPriceButton");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+  totalPriceButton.addEventListener("click", (event) => {
+    event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+    const calculator = new Calculator();
+    const quantityValue = parseFloat(quantity.value);
+    const unitPriceValue = parseFloat(unitPrice.value);
 
-  calculator = new Calculator();
+    const netPriceValue = calculator.netPrice(unitPriceValue, quantityValue);
 
-  div.innerHTML = "<p>" + calculator.sumar(firstNumber, secondNumber) + "</p>";
+    netPrice.value = netPriceValue.toFixed(2);
+    netPrice.classList.remove("hidden"); 
+  });
 });
+

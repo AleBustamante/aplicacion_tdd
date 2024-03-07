@@ -1,8 +1,8 @@
 import Calculator from "./calculator";
 
 describe("Sumar", () => {
-  it(" 2222 deberia sumar dos numeros", () => {
+  it("Should multiply the unit price by the amount bought", () => {
     let calculator = new Calculator();
-    expect(calculator.sumar(3, 2)).toEqual(5);
+    expect(calculator.netPrice(30, 5)).toEqual(150);
   });
 });

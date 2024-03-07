@@ -63,8 +63,8 @@
 
     <div>
     <label for="netPrice">Precio Neto:</label>
-    <input type="text" id="netPriceDetail" class="hidden" readonly>
-    <input type="text" id="netPrice" class="hidden" readonly>
+    <input type="text" id="netPriceDetail" class="hidden" >
+    <input type="text" id="netPrice" class="hidden" >
     </div>
 
     <div>
@@ -110,9 +110,9 @@
     </div>
 
     <div>
-    <button type="button" onclick="calculateTotal()">Calcular Precio Total</button>
+    <input type="submit" value="Precio Total" id="totalPriceButton">
     </div>
   </form>
-
+  <script type="module" src="./src/presenter.js"></script>
 </body>
 </html>

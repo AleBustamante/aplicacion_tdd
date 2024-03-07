@@ -1,5 +1,5 @@
 export default class Calculator {
-  sumar(a, b) {
-    return a + b;
+  netPrice(unitPrice, quantity) {
+    return unitPrice * quantity;
   }
 }
