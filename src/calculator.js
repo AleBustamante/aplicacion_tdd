@@ -25,4 +25,7 @@ export default class Calculator {
     }
     return discount;
   }
+  discount(netPrice) {
+    return this.discountPercentage(netPrice) * 0.01 * netPrice;
+  }
 }

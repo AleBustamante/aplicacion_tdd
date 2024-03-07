@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const netPriceValue = calculator.netPrice(unitPriceValue, quantityValue);
     const netPriceDetailValue = calculator.detailNetPrice(unitPriceValue, quantityValue);
     const discountPercentageValue = calculator.discountPercentage(netPriceValue);
+    const discountValue = calculator.discount(netPriceValue);
 
     netPrice.value = netPriceValue.toFixed(2);
     netPrice.classList.remove("hidden"); 
@@ -32,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
     netPriceDetail.classList.remove("hidden"); 
     discountDetail.value = discountPercentageValue + "% =";
     discountDetail.classList.remove("hidden"); 
+    discount.value = discountValue + "$";
+    discount.classList.remove("hidden"); 
   });
 });
 
